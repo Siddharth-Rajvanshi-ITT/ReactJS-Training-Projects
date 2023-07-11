@@ -1,0 +1,186 @@
+*{
+    margin: 0;
+    text-decoration: none;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+li{
+    font-weight: 500;
+}
+p, h1, h2, h3, li{  
+    margin: 10px auto;
+}
+
+
+/* NavBar */
+
+.navbar{
+    padding: 10px 50px;
+    background-color: rgb(0, 0, 60);
+    height: 80px;
+    padding-top: 20px;
+}
+
+/* Logo */
+
+.logo{
+    font-size: 50px;
+    color: white;
+    display: inline;
+    /* margin: 15px auto; */
+    margin-top: 30px;
+}
+
+/* Menu */
+
+.menu{
+
+    float: right;
+
+    margin-top: 20px;
+
+    color: white;
+    
+}
+
+.menu li{
+    display: inline;
+    margin: auto 10px;
+    font-size: 20px;
+}
+
+.menu li a:link, .menu li a:visited, .menu li a:hover, .menu li a:active{
+    color: white;
+}
+
+
+
+.menu button{
+    color: white;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 7px 18px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+    background-color: orangered;
+}
+
+/* Middle section */
+
+.content{
+    display: block;
+    flex-basis: 80%;
+}
+
+.container{
+    display: flex;
+}
+
+
+.middle{
+    display: flex;
+    padding: 30px 15px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    border: 1px;
+    border-style: solid;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px lightblue;
+}
+
+.card > *{
+    margin: 10px auto;
+    text-align: center;
+    align-items: center;
+    
+}
+
+.card h1{
+    color: orangered;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.card button{
+    padding: 7px 15px;
+    border-radius: 5px;
+    color: white;
+    border-color: orangered;
+    background-color: orangered;
+    border-style: none;
+}
+
+.card a:visited, .card a:link, .card a:active{
+    color: white;
+}
+
+a:link{
+    color: orangered;
+}
+
+a:visited{
+    color: orangered;
+}
+
+a:hover{
+    color: maroon;
+}
+
+a:active{
+    color: orangered;
+}
+
+/* SideBar */
+
+.sidebar{
+    flex-basis: 20%;
+    padding: 10px;
+    margin: 10px;
+}
+
+.sidebar ul li{
+    list-style: none;
+    padding: 2px 0px;
+    
+    
+}
+
+.sidebar ul li a:link{
+    color: orangered;
+    
+    
+}
+
+
+
+
+.foot{
+    background-color: rgb(0, 0, 60);
+    color: white;
+    padding: 50px 50px;
+    display: flex;
+}
+
+.foot > *{
+    flex: 1;
+    margin: 10px;
+}
+
+.foot a:link, footer a:visited, footer a:active{
+    color: white;
+}
+
+.foot li{
+    list-style: none;
+}
+
+hr{
+    margin: 10px auto 20px auto;
+}
