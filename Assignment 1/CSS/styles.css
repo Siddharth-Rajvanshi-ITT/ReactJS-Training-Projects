@@ -128,6 +128,7 @@ p, h1, h2, h3, li{
 
 .container{
     display: flex;
+    
 }
 
 .icons{
@@ -429,7 +430,7 @@ hr{
     }
 
     #check{
-        display: inline;
+        display: none;
     }
 
     #check:checked ~ .menu{
