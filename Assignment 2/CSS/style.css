@@ -1,12 +1,9 @@
 * {
-    font-family:'Times New Roman', Times, serif;
+    font-family: Lato;
     margin: 0;
     padding: 0;
 }
 
-body{
-    background-color: #FFF9DE;
-}
 
 h1, h3, h4, p{
     padding: .5rem;
@@ -14,11 +11,10 @@ h1, h3, h4, p{
 
 nav{
     display: flex;
-    /* width: 100%; */
+    margin: 0 auto;
     justify-content: center;
-    padding: .6rem 1rem;
+    padding: .6rem;
     box-shadow: 0rem 0rem .2rem black;
-    background-color: white;
 }
 
 nav ul{
@@ -35,28 +31,41 @@ li a{
     color: black;
 }
 
+.name{
+    font-size: 1.5rem;
+}
+
 .designation{
-    color: rgb(0, 122, 163);
-    font-weight: 600;
+    color: #142B55;
+    font-weight: 900;
     text-transform: uppercase;
 }
 
 .container{
 
-    /* background-color: white; */
-    width: 100%;
-    max-width: 870px;
-    min-width: 300px;
     display: flex;
-    margin: 2rem auto;
+    margin: 0rem auto;
     /* margin-top: 5rem; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
-    padding: 0rem;
+    padding: 2rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://plus.unsplash.com/premium_photo-1675804669860-9e27f22b0681?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1050&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
     /* border-radius: 1rem;
     box-shadow: 0.5rem 0.5rem 1.5rem rgba(0, 0, 0, 0.3); */
+}
+
+.container h1{
+    color: white;
+}
+
+.card{
+    max-width: 870px;
+    min-width: 97%;
+    /* margin: auto .5rem; */
 }
 
 
@@ -67,7 +76,7 @@ hr{
     /* align-self: center; */
     width: 5rem;
     border: none;
-    background-color: rgb(0, 122, 163);
+    background-color: rgb(0, 191, 255);
 
 }
 
@@ -79,8 +88,10 @@ img{
 }
 
 i{
-    color: rgb(0, 122, 163);
+    color: #142B55;
     padding: .4rem;
+    margin-top: .5rem;
+    font-size: 1.2rem;
     border-radius: 50%;
 }
 
@@ -116,6 +127,10 @@ i:hover{
 @media (max-width: 425px){
     .container h1{
         font-size: 1.7rem;
+    }
+
+    .container{
+        padding: 2rem .3rem;
     }
 
     p{
