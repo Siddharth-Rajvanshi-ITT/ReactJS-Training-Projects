@@ -1,0 +1,115 @@
+*{
+    font-family: Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    /* background-color: #474C53; */
+    /* max-width: 60rem;
+    min-width: 100%; */
+    padding: 1rem;
+    background-image: url("https://images.unsplash.com/photo-1682370992900-d2ba92e09d7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container h1{
+    color: white;
+    /* font-weight: 300; */
+}
+
+.faqs{
+    padding: .5rem;
+    width: 70%;
+    min-width: 320px;
+}
+
+.questions{
+    /* border: solid 1px black; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    border-radius: .6rem;
+    /* box-shadow: 0rem 0rem 0.3rem rgb(146, 146, 146); */
+    background: linear-gradient(#FEA636, #F26323);
+}
+
+.questions h3{
+    color: white;
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+
+.question-line{
+    display: block;
+}
+
+i{
+    cursor: pointer;
+    color: white;
+    padding: .7rem;
+    border-radius: 50%;
+}
+
+i:hover{
+    background-color: #F26323;
+}
+
+.answers{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem 2rem;
+    border: solid #F26323 .3rem;
+    border-radius: .6rem;
+    /* box-shadow: 0rem 0rem 0.3rem rgb(146, 146, 146); */
+    background-color: black;
+    color: white;
+}
+
+.answers p{
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+    /* letter-spacing: 0rem; */
+}
+
+.hide{
+    display: none;
+}
+
+@media (max-width: 425px){
+    .container h1{
+        font-size: 1.7rem;
+    }
+
+    .questions h3{
+        font-size: 1.1rem;
+    }
+
+    .answers p{
+        font-size: 1rem;
+    }
+
+    .container{
+        padding: 1rem;
+    }
+
+    .faqs{
+        width: 85%;
+        overflow: 0;
+    }
+}
