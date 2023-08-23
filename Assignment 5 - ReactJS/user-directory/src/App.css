@@ -1,0 +1,146 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body{
+  margin: 0;
+}
+
+.header{
+  height: 12rem;
+  background: linear-gradient(#FEA636, #F26323);
+  margin-bottom: -10rem;
+}
+
+.container{
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 2rem;
+}
+
+.profile{
+  border: solid 2px #28223F;
+  border-radius: .5rem;
+  color: white;
+  background: #231E39;
+  padding: .7rem;
+}
+
+.userProfilePic{
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  border: lightseagreen 3px solid;
+  padding: .5rem;
+}
+
+.skills{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: start;
+  padding: .3rem 1rem;
+  gap: .5rem;
+  justify-content: center;
+}
+
+.skill{
+  border: solid white 1px;
+  border-radius: .2rem;
+  padding: .5rem;
+}
+
+.customize{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1rem 0rem;
+  background: #28223F;
+  border-radius: .5rem;
+}
+
+.fav{
+  font-size: 1.5rem;
+  color: red;
+}
+
+.editIcon{
+  font-size: 1.3rem;
+}
+
+.popup{
+  min-width: 30rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: solid lightgrey .5rem;
+  border-radius: .2rem;
+  padding: 1rem 2rem;
+}
+
+.closePopup{
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  cursor: pointer;
+}
+
+input{
+  border: solid black 1px;
+  border-radius: .2rem;
+  padding: .3rem .5rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.inputForm{
+  padding: 1rem;
+  display: flex;
+  gap: .3 rem;
+  flex-direction: column;
+}
+
+.submitDetailsButton{
+  background: #28223F;
+  color: white;
+  margin: 1rem 0;
+  padding: .3rem;
+  width: inherit;
+}
+
