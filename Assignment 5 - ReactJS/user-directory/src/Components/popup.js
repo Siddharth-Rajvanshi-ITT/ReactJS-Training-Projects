@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
 export const Popup = (props) => {
-  const [username, setUsername] = useState();
-  const [email, setEmail] = useState();
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [company, setCompany] = useState();
-  const [website, setWebsite] = useState();
-  const [address, setAddress] = useState();
+  const [username, setUsername] = useState(props.selectedUser.name);
+  const [email, setEmail] = useState(props.selectedUser.email);
+  const [phoneNumber, setPhoneNumber] = useState(props.selectedUser.phone);
+  const [company, setCompany] = useState(props.selectedUser.company);
+  const [website, setWebsite] = useState(props.selectedUser.website);
+  const [address, setAddress] = useState(props.selectedUser.address);
 
   const handleUsername = (event) => {
     setUsername(event.target.value);
@@ -39,7 +39,7 @@ export const Popup = (props) => {
 
     userData.name = username;
     userData.email = email;
-    userData.phoneNumber = phoneNumber;
+    userData.phone = phoneNumber;
     userData.company = company;
     userData.website = website;
     userData.address = address;
@@ -64,13 +64,23 @@ export const Popup = (props) => {
             <label className="inputDetail">
               Username:
               <br />
-              <input type="text" onChange={handleUsername} required></input>
+              <input
+                type="text"
+                value={username}
+                onChange={handleUsername}
+                required
+              ></input>
             </label>
             <br />
             <label className="inputDetail">
               Email:
               <br />
-              <input type="email" onChange={handleEmail} required></input>
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmail}
+                required
+              ></input>
             </label>
             <br />
             <label className="inputDetail">
@@ -78,6 +88,7 @@ export const Popup = (props) => {
               <br />
               <input
                 type="number"
+                value={phoneNumber}
                 onChange={handlePhoneNumber}
                 required
               ></input>
@@ -86,19 +97,34 @@ export const Popup = (props) => {
             <label className="inputDetail">
               Company:
               <br />
-              <input type="text" onChange={handleCompany} required></input>
+              <input
+                type="text"
+                value={company}
+                onChange={handleCompany}
+                required
+              ></input>
             </label>
             <br />
             <label className="inputDetail">
               Website:
               <br />
-              <input type="text" onChange={handleWebsite} required></input>
+              <input
+                type="text"
+                value={website}
+                onChange={handleWebsite}
+                required
+              ></input>
             </label>
             <br />
             <label className="inputDetail">
               Address:
               <br />
-              <input type="text" onChange={handleAddress} required></input>
+              <input
+                type="text"
+                value={address}
+                onChange={handleAddress}
+                required
+              ></input>
             </label>
             <input type="submit" className="submitDetailsButton"></input>
           </form>

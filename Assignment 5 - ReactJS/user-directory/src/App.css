@@ -37,6 +37,16 @@
   }
 }
 
+@font-face {
+  font-family: 'Mukta';
+  src: url(./Assets/Fonts/Signika/Signika-Light.ttf);
+  /* padding: 0; */
+}
+
+*{
+  font-family: 'Mukta';
+}
+
 body{
   margin: 0;
 }
@@ -144,3 +154,15 @@ input{
   width: inherit;
 }
 
+@media (max-width: 768px)
+{
+  .container{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 580px)
+{
+  .container{
+    grid-template-columns: 1fr;
+  }
+}
