@@ -33,7 +33,7 @@ function App() {
             if (display[user.id - 1])
               return (
                 <Profile
-                  key={index}
+                  key={user.id}
                   user={user}
                   display={display}
                   setDisplay={setDisplay}

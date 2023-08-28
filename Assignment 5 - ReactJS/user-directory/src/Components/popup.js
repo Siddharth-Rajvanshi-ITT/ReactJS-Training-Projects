@@ -7,6 +7,7 @@ export const Popup = (props) => {
   const [company, setCompany] = useState(props.selectedUser.company);
   const [website, setWebsite] = useState(props.selectedUser.website);
   const [address, setAddress] = useState(props.selectedUser.address);
+  const [skills, setSkills] = useState(props.selectedUser.skills);
 
   const handleUsername = (event) => {
     setUsername(event.target.value);
@@ -32,8 +33,13 @@ export const Popup = (props) => {
     setAddress(event.target.value);
   };
 
+  const handleSkills = (event) => {
+    setSkills(event.target.value.split(/[, ]/));
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    event.stopPropagation();
 
     const userData = props.selectedUser;
 
@@ -43,6 +49,7 @@ export const Popup = (props) => {
     userData.company = company;
     userData.website = website;
     userData.address = address;
+    userData.skills = skills;
 
     props.setSelectedUser(userData);
 
@@ -50,9 +57,9 @@ export const Popup = (props) => {
   };
 
   return (
-    <>
+    <div className="blurBG" onClick={(event) => props.setDisplayPopup(false)}>
       {props.selectedUser && (
-        <div className="popup">
+        <div className="popup" onClick={(event) => event.stopPropagation()}>
           <h3>Edit User Details</h3>
 
           <i
@@ -126,11 +133,21 @@ export const Popup = (props) => {
                 required
               ></input>
             </label>
+            <label className="inputDetail">
+              Skills (Coma separated):
+              <br />
+              <input
+                type="text"
+                value={skills}
+                onChange={handleSkills}
+                required
+              ></input>
+            </label>
             <input type="submit" className="submitDetailsButton"></input>
           </form>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
