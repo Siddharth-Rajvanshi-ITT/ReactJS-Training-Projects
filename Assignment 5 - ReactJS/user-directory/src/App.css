@@ -78,6 +78,7 @@ body {
   border-radius: 50%;
   border: lightseagreen 3px solid;
   padding: 0.5rem;
+  margin: auto;
 }
 
 .skills {
@@ -161,6 +162,36 @@ input {
   background: rgba(128, 128, 128, 0.411);
   position: fixed;
   z-index: 1;
+}
+
+.profileSkeleton {
+  border: solid 2px grey;
+  border-radius: 0.5rem;
+  color: white;
+  background: lightgray;
+  padding: 0.7rem;
+}
+
+.userProfilePicSkeleton {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  border: gray 3px solid;
+  padding: 0.5rem;
+  margin: auto;
+}
+
+.fillDiv {
+  height: 1rem;
+  background: gray;
+  margin: 0.5rem;
+}
+
+.skillSkeletonContainer {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 2rem;
 }
 
 @media (max-width: 768px) {

@@ -4,7 +4,7 @@ const Skills = (props) => {
       {props.skills.map((skill, index) => {
         if (skill)
           return (
-            <p className="skill" key={skill.id}>
+            <p className="skill" key={index}>
               {skill}
             </p>
           );

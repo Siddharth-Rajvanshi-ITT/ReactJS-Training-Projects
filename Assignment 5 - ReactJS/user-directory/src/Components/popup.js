@@ -1,40 +1,21 @@
 import React, { useState } from "react";
 
 export const Popup = (props) => {
-  const [username, setUsername] = useState(props.selectedUser.name);
-  const [email, setEmail] = useState(props.selectedUser.email);
-  const [phoneNumber, setPhoneNumber] = useState(props.selectedUser.phone);
-  const [company, setCompany] = useState(props.selectedUser.company);
-  const [website, setWebsite] = useState(props.selectedUser.website);
-  const [address, setAddress] = useState(props.selectedUser.address);
-  const [skills, setSkills] = useState(props.selectedUser.skills);
+  const [user, setUser] = useState({
+    username: props.selectedUser.name,
+    email: props.selectedUser.email,
+    phoneNumber: props.selectedUser.phone,
+    company: props.selectedUser.company,
+    website: props.selectedUser.website,
+    address: props.selectedUser.address,
+    skills: props.selectedUser.skills,
+  });
 
-  const handleUsername = (event) => {
-    setUsername(event.target.value);
-  };
-
-  const handleEmail = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePhoneNumber = (event) => {
-    setPhoneNumber(event.target.value);
-  };
-
-  const handleCompany = (event) => {
-    setCompany(event.target.value);
-  };
-
-  const handleWebsite = (event) => {
-    setWebsite(event.target.value);
-  };
-
-  const handleAddress = (event) => {
-    setAddress(event.target.value);
-  };
-
-  const handleSkills = (event) => {
-    setSkills(event.target.value.split(/[, ]/));
+  const handleUser = (event) => {
+    setUser({
+      ...user,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = (event) => {
@@ -43,13 +24,13 @@ export const Popup = (props) => {
 
     const userData = props.selectedUser;
 
-    userData.name = username;
-    userData.email = email;
-    userData.phone = phoneNumber;
-    userData.company = company;
-    userData.website = website;
-    userData.address = address;
-    userData.skills = skills;
+    userData.name = user.username;
+    userData.email = user.email;
+    userData.phone = user.phoneNumber;
+    userData.company = user.company;
+    userData.website = user.website;
+    userData.address = user.address;
+    userData.skills = user.skills.split(/[, ]/);
 
     props.setSelectedUser(userData);
 
@@ -73,8 +54,9 @@ export const Popup = (props) => {
               <br />
               <input
                 type="text"
-                value={username}
-                onChange={handleUsername}
+                value={user.username}
+                name="username"
+                onChange={handleUser}
                 required
               ></input>
             </label>
@@ -84,8 +66,9 @@ export const Popup = (props) => {
               <br />
               <input
                 type="email"
-                value={email}
-                onChange={handleEmail}
+                value={user.email}
+                name="email"
+                onChange={handleUser}
                 required
               ></input>
             </label>
@@ -95,8 +78,9 @@ export const Popup = (props) => {
               <br />
               <input
                 type="number"
-                value={phoneNumber}
-                onChange={handlePhoneNumber}
+                value={user.phoneNumber}
+                name="phoneNumber"
+                onChange={handleUser}
                 required
               ></input>
             </label>
@@ -106,8 +90,9 @@ export const Popup = (props) => {
               <br />
               <input
                 type="text"
-                value={company}
-                onChange={handleCompany}
+                value={user.company}
+                name="company"
+                onChange={handleUser}
                 required
               ></input>
             </label>
@@ -117,8 +102,9 @@ export const Popup = (props) => {
               <br />
               <input
                 type="text"
-                value={website}
-                onChange={handleWebsite}
+                value={user.website}
+                name="website"
+                onChange={handleUser}
                 required
               ></input>
             </label>
@@ -128,8 +114,9 @@ export const Popup = (props) => {
               <br />
               <input
                 type="text"
-                value={address}
-                onChange={handleAddress}
+                value={user.address}
+                name="address"
+                onChange={handleUser}
                 required
               ></input>
             </label>
@@ -138,8 +125,9 @@ export const Popup = (props) => {
               <br />
               <input
                 type="text"
-                value={skills}
-                onChange={handleSkills}
+                value={user.skills}
+                name="skills"
+                onChange={handleUser}
                 required
               ></input>
             </label>
