@@ -20,7 +20,6 @@ export const Popup = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    event.stopPropagation();
 
     const userData = props.selectedUser;
 
@@ -30,22 +29,33 @@ export const Popup = (props) => {
     userData.company = user.company;
     userData.website = user.website;
     userData.address = user.address;
-    userData.skills = user.skills.split(/[, ]/);
+    userData.skills = user.skills.toString().split(/[, ]/);
 
     props.setSelectedUser(userData);
 
     props.setDisplayPopup(false);
+
+    document.body.style.overflow = "scroll";
   };
 
   return (
-    <div className="blurBG" onClick={(event) => props.setDisplayPopup(false)}>
+    <div
+      className="blurBG"
+      onClick={(event) => {
+        props.setDisplayPopup(false);
+        document.body.style.overflow = "scroll";
+      }}
+    >
       {props.selectedUser && (
         <div className="popup" onClick={(event) => event.stopPropagation()}>
           <h3>Edit User Details</h3>
 
           <i
             className="fa-solid fa-x closePopup"
-            onClick={() => props.setDisplayPopup(false)}
+            onClick={() => {
+              props.setDisplayPopup(false);
+              document.body.style.overflow = "scroll";
+            }}
           ></i>
 
           <form className="inputForm" onSubmit={handleSubmit}>
@@ -121,7 +131,7 @@ export const Popup = (props) => {
               ></input>
             </label>
             <label className="inputDetail">
-              Skills (Coma separated):
+              Skills:
               <br />
               <input
                 type="text"

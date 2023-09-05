@@ -51,10 +51,30 @@ body {
   margin: 0;
 }
 
+.dark {
+  background: linear-gradient(to right top, #000000, #434343);
+}
+
 .header {
-  height: 12rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3rem;
   background: linear-gradient(#fea636, #f26323);
-  margin-bottom: -10rem;
+  padding: 1rem 2rem;
+}
+.dark .header {
+  background: linear-gradient(to bottom, #da22ff, #9733ee);
+}
+
+.navmenu {
+  font-weight: 500;
+}
+
+.navitem {
+  font-size: 1.3rem;
+  color: white;
+  text-decoration: none;
 }
 
 .container {
@@ -67,18 +87,39 @@ body {
 .profile {
   border: solid 2px #28223f;
   border-radius: 0.5rem;
-  color: white;
-  background: #231e39;
+  color: #28223f;
+  background: #e0e0e0;
   padding: 0.7rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem gray;
+}
+
+.dark .profile {
+  border: solid 3px #da22ff;
+  color: white;
+  background: #292929;
+  box-shadow: none;
+}
+
+.profile p {
+  font-weight: 600;
+}
+
+.dark .profile p {
+  font-weight: 500;
 }
 
 .userProfilePic {
   height: 7rem;
   width: 7rem;
   border-radius: 50%;
-  border: lightseagreen 3px solid;
+  border: #28223f 3px solid;
   padding: 0.5rem;
   margin: auto;
+  /* box-shadow: 0rem 0rem 0.3rem gray; */
+}
+
+.dark .userProfilePic {
+  border: #da22ff 3px solid;
 }
 
 .skills {
@@ -91,17 +132,28 @@ body {
 }
 
 .skill {
-  border: solid white 1px;
+  border: solid #28223f 1px;
   border-radius: 0.2rem;
   padding: 0.5rem;
 }
 
+.dark .skill {
+  border: solid white 1px;
+}
+
 .customize {
   display: grid;
+  color: white;
   grid-template-columns: repeat(3, 1fr);
   padding: 1rem 0rem;
-  background: #28223f;
+  background: #2e2847;
   border-radius: 0.5rem;
+  border: solid 2px;
+}
+
+.dark .customize {
+  background: #1f1f1f;
+  border: solid 2px #da22ff;
 }
 
 .fav {
@@ -124,6 +176,11 @@ body {
   border-radius: 0.2rem;
   padding: 1rem 2rem;
   z-index: 2;
+}
+
+.dark .popup {
+  background: #292929;
+  color: white;
 }
 
 .closePopup {
@@ -154,9 +211,17 @@ input {
   margin: 1rem 0;
   padding: 0.3rem;
   width: inherit;
+  margin-right: -18px;
+}
+
+.dark .submitDetailsButton {
+  background: #da22ff;
+  margin-right: -18px;
 }
 
 .blurBG {
+  position: fixed;
+  top: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(128, 128, 128, 0.411);
@@ -192,6 +257,60 @@ input {
   gap: 1rem;
   grid-template-columns: repeat(5, 1fr);
   padding: 2rem;
+}
+
+.searchBar {
+  width: 10rem;
+}
+
+.switch {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  width: 2rem;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.userDetail {
+  padding: 2rem;
+  height: 77.9vh;
+}
+
+.userDetailContainer {
+  border: solid 2px #28223f;
+  border-radius: 0.5rem;
+  color: #28223f;
+  background: #e0e0e0;
+  padding: 0.7rem;
+  box-shadow: 0.1rem 0.1rem 0.5rem gray;
+  width: 70vw;
+  margin: 0rem auto;
+}
+
+.dark .userDetailContainer {
+  border: solid 3px #da22ff;
+  color: white;
+  background: #292929;
+  box-shadow: none;
+}
+
+.userDetailContainer i {
+  font-size: 1.5rem;
+}
+
+.dark .userDetailContainer i {
+  color: #da22ff;
+}
+
+.displayDetails {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 1rem;
+  margin-top: 2.5rem;
 }
 
 @media (max-width: 768px) {
