@@ -1,0 +1,131 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  padding: 2rem;
+  gap: 1rem;
+  margin: 0;
+}
+
+.sidebar {
+  position: static;
+  width: 15rem;
+  /* background-color: #100c2a; */
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: solid 1px;
+  /* color: white; */
+  /* height: 100vh; */
+}
+
+.profilePic {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+  border: dashed 0.3rem #100c2a;
+  padding: 0.5rem;
+}
+
+.NavTabs {
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+.NavTabs a {
+  text-decoration: none;
+  color: black;
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  background-color: lightgray;
+  border-radius: 1.5rem;
+}
+
+.section {
+  background-color: rgb(255, 255, 255);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: solid 1px;
+}
+
+.studentProfilePic {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+  border: dashed 0.15rem lightgray;
+  padding: 0.5rem;
+}
+
+.studentImageContainer {
+  text-align: center;
+}
+
+.studentProfile {
+  display: flex;
+  /* gap: 5rem; */
+  width: 100%;
+}
+
+.studentCard {
+  background: #100c2a;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin: auto;
+  width: 25%;
+  color: white;
+  text-align: start;
+}
+
+.viewProfileBtn {
+  width: 100%;
+  padding: 0.4rem;
+  border-radius: 1rem;
+  border: none;
+}
