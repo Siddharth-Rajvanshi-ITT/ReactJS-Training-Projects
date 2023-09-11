@@ -39,32 +39,38 @@
 
 body {
   margin: 0;
+  background: #eff2f8;
 }
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  padding: 2rem;
+  grid-template-columns: 2fr 7fr;
+  padding: 1.5rem 2rem;
   gap: 1rem;
   margin: 0;
 }
 
+.sidbarContainer {
+  position: relative;
+}
+
 .sidebar {
-  position: static;
+  position: fixed;
   width: 15rem;
-  /* background-color: #100c2a; */
+  background-color: #6b75ca;
   padding: 1rem;
   border-radius: 0.5rem;
-  border: solid 1px;
-  /* color: white; */
-  /* height: 100vh; */
+  border: solid 1px lightgray;
+  box-shadow: 0rem 0rem 0.3rem gray;
+  color: #eff2f8;
+  height: 36rem;
 }
 
 .profilePic {
   height: 8rem;
   width: 8rem;
   border-radius: 50%;
-  border: dashed 0.3rem #100c2a;
+  border: dashed 0.2rem #eff2f8;
   padding: 0.5rem;
 }
 
@@ -74,25 +80,36 @@ body {
   color: black;
 }
 
-.NavTabs a {
+.navlinks {
   text-decoration: none;
   color: black;
   font-weight: 900;
   font-size: 1.1rem;
   margin: 0.5rem 0;
   padding: 0.5rem 0;
-  background-color: lightgray;
+  background-color: #eff2f8;
   border-radius: 1.5rem;
+}
+
+.active {
+  background: linear-gradient(#e25959, #e25959);
+  color: white;
 }
 
 .section {
   background-color: rgb(255, 255, 255);
-  padding: 1rem 2rem;
-  border-radius: 1rem;
+  padding: 2rem 2rem;
+  border-radius: 0.3rem;
+  color: #393c51;
+  border: solid 0.15rem #6b75ca;
+  box-shadow: 0rem 0rem 0.5rem lightgray;
+}
+
+.dashboard {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  border: solid 1px;
+  align-items: center;
 }
 
 .studentProfilePic {
@@ -109,12 +126,11 @@ body {
 
 .studentProfile {
   display: flex;
-  /* gap: 5rem; */
   width: 100%;
 }
 
 .studentCard {
-  background: #100c2a;
+  background: #6b75ca;
   padding: 2rem;
   border-radius: 0.5rem;
   margin: auto;

@@ -8,10 +8,15 @@ import StudentProfile from "../StudentProfile";
 const Dashboard = () => {
   return (
     <div className="section">
-      <BarChart />
-      <LineChart />
-      <PieChart />
-      <StudentProfile />
+      <h1>Welcome To Your Dashboard</h1>
+      <h2>Check your attendance</h2>
+      <div className="dashboard">
+        <BarChart />
+        <LineChart />
+        <PieChart />
+        <h1>Your Students</h1>
+        <StudentProfile />
+      </div>
     </div>
   );
 };
