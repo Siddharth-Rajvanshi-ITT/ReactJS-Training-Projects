@@ -8,10 +8,10 @@ const productSlice = createSlice({
     error: false,
   },
   reducers: {
-    getMovies: (state, action) => {
+    getProducts: (state, action) => {
       state.data = action.payload;
     },
-    deleteMovie: (state, action) => {
+    deleteProduct: (state, action) => {
       state.data = state.data.map((element, key) => {
         return element.id !== action.payload && element;
       });
@@ -19,5 +19,5 @@ const productSlice = createSlice({
   },
 });
 
-export const { getMovies, deleteMovie } = productSlice.actions;
+export const { getProducts, deleteProduct } = productSlice.actions;
 export default productSlice.reducer;

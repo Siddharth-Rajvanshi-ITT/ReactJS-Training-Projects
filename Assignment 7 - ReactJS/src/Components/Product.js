@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteMovie } from "../Features/createSlice";
+import { deleteProduct } from "../Features/Products/productsSlice";
 import { useNavigate } from "react-router-dom";
 import { addItem, deleteItem } from "../Features/Products/cartSlice";
 
@@ -9,7 +9,7 @@ const Product = ({ product }) => {
   const navigate = useNavigate();
 
   const handleDelete = () => {
-    dispatch(deleteMovie(product.id));
+    dispatch(deleteProduct(product.id));
   };
 
   const handleAddToCart = () => {

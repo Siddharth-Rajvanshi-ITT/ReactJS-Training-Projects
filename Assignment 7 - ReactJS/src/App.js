@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NavBar } from "./Components/Nav";
 import { Home } from "./Components/Home";
 import { useDispatch } from "react-redux";
-import { getMovies } from "./Features/createSlice";
+import { getProducts } from "./Features/Products/productsSlice";
 import { useEffect } from "react";
 import axios from "axios";
 import ProductPage from "./Components/pages/productPage";
@@ -19,7 +19,7 @@ function App() {
         .catch((err) => {
           console.log("Error Response: ", err);
         });
-      dispatch(getMovies(res.data));
+      dispatch(getProducts(res.data));
     };
     movies();
   }, [dispatch]);
