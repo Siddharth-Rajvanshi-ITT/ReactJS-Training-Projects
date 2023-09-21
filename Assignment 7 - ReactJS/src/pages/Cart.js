@@ -1,6 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart, deleteItem } from "../../Features/Products/cartSlice";
+import {
+  clearCart,
+  deleteItem,
+  updateQuantity,
+} from "../Features/Products/cartSlice";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart);
@@ -13,20 +17,30 @@ const Cart = () => {
 
   return (
     <div>
-      {cartItems.items.map((element) => {
-        const handleDeleteItem = () => {
-          dispatch(deleteItem({ item: element }));
-        };
-        return (
-          <div key={element.id}>
-            <img src={element.image} className="product-image" alt="" />
-            <h2>{element.title}</h2>
-            <h2>{element.price} $</h2>
-            <h3>Rating: {element.rating?.rate}/5</h3>
-            <button onClick={handleDeleteItem}>Delete From Cart</button>
-          </div>
-        );
-      })}
+      <div className="cart-container">
+        {cartItems.items.map((element) => {
+          const handleDeleteItem = () => {
+            dispatch(deleteItem({ item: element }));
+          };
+
+          const handleQuantity = (value) => {
+            dispatch(updateQuantity({ item: element, value: value }));
+          };
+          return (
+            <div key={element.id}>
+              <img src={element.image} className="product-image" alt="" />
+              <h2>{element.title}</h2>
+              <h2>{element.price} $</h2>
+              <h2>Total Price {element.price * element.quantity} $</h2>
+              <h3>Rating: {element.rating?.rate}/5</h3>
+              <h3>quantity: {element.quantity}</h3>
+              <button onClick={() => handleQuantity(-1)}>-</button>
+              <button onClick={handleDeleteItem}>Delete From Cart</button>
+              <button onClick={() => handleQuantity(1)}>+</button>
+            </div>
+          );
+        })}
+      </div>
       <button onClick={handleClearCart}>Clear Cart</button>
     </div>
   );

@@ -13,7 +13,7 @@ const Product = ({ product }) => {
   };
 
   const handleAddToCart = () => {
-    dispatch(addItem({ item: product }));
+    dispatch(addItem({ item: { ...product, quantity: 1 } }));
   };
 
   const handleDeleteItem = () => {

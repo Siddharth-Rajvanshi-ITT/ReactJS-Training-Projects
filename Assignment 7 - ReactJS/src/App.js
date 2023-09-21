@@ -7,7 +7,7 @@ import { getProducts } from "./Features/Products/productsSlice";
 import { useEffect } from "react";
 import axios from "axios";
 import ProductPage from "./Components/pages/productPage";
-import Cart from "./Components/pages/Cart";
+import Cart from "./pages/Cart";
 
 function App() {
   const dispatch = useDispatch();
