@@ -1,15 +1,14 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {
   clearCart,
   deleteItem,
   updateQuantity,
 } from "../Features/Products/cartSlice";
+import { useAppDispatch, useAppSelector } from "../Features/React-hooks";
 
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
-  console.log("Cart Items", cartItems);
+  const cartItems = useAppSelector((state) => state.cart);
+  const dispatch = useAppDispatch();
 
   const handleClearCart = () => {
     dispatch(clearCart());

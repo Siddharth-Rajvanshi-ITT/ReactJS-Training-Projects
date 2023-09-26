@@ -2,15 +2,15 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NavBar } from "./Components/Nav";
 import { Home } from "./Components/Home";
-import { useDispatch } from "react-redux";
 import { getProducts } from "./Features/Products/productsSlice";
 import { useEffect } from "react";
 import axios from "axios";
-import ProductPage from "./Components/pages/productPage";
+import ProductPage from "./pages/productPage";
 import Cart from "./pages/Cart";
+import { useAppDispatch } from "./Features/React-hooks";
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const movies = async () => {

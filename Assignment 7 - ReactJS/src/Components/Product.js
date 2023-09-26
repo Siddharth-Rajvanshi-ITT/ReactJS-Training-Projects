@@ -1,11 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import { deleteProduct } from "../Features/Products/productsSlice";
 import { useNavigate } from "react-router-dom";
 import { addItem, deleteItem } from "../Features/Products/cartSlice";
+import { useAppDispatch } from "../Features/React-hooks";
 
 const Product = ({ product }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleDelete = () => {
@@ -33,7 +33,7 @@ const Product = ({ product }) => {
             <h4>{product.rating?.count} Reviews</h4>
           </div>
           <div>
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleDelete}>Delete Product</button>
             <button
               onClick={() => {
                 navigate(`/prod/${product.id}`);

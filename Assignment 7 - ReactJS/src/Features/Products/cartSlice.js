@@ -37,11 +37,6 @@ const cartSlice = createSlice({
     },
     updateQuantity: (state, action) => {
       state.items = state.items.map((element) => {
-        console.log(
-          action.payload.value,
-          action.payload.item.price,
-          action.payload.item.quantity
-        );
         return parseInt(element.id) === parseInt(action.payload.item.id)
           ? {
               ...element,
