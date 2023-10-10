@@ -1,0 +1,10 @@
+.restaurantCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.restaurantImg {
+  border-radius: 0.5rem;
+  max-width: 19vw;
+}

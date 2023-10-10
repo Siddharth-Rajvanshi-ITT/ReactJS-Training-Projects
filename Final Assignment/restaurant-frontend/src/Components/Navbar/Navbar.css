@@ -1,0 +1,41 @@
+.login-logo {
+  height: 3rem;
+  margin: auto 1rem;
+  cursor: pointer;
+}
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  background-color: #faf1e0;
+}
+
+.navLogo,
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.menu a {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.navLogo img {
+  border-radius: 50%;
+  height: 3rem;
+}
+
+button {
+  background-color: #041f3a;
+  padding: 0.15rem 1.5rem;
+  border-radius: 1rem;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
