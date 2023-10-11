@@ -5,19 +5,16 @@ import "./Restaurant.css";
 import MenuItem from "./Components/MenuItems";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import { MenuItems } from "../../Types/menuTypes";
+import { restaurant } from "../../Types/restaurantTypes";
 
 type resData = {
   MenuItems: MenuItems[];
-  restaurant: {
-    data: {
-      name: string;
-      id: number;
-    };
-  }[];
+  restaurant: restaurant[];
 };
 
 const Restaurant = () => {
   const [restaurantData, setRestaurantData] = useState<null | resData>(null);
+  const [items, setItems] = useState<MenuItems[]>([]);
   const param = useParams();
 
   const { id } = param;
@@ -30,10 +27,12 @@ const Restaurant = () => {
     fetchRestaurantData();
   }, [id]);
 
-  console.log(restaurantData);
-  console.log(restaurantData?.MenuItems);
+  // console.log(restaurantData);
+  // console.log(restaurantData?.MenuItems);
 
-  const handleChange = (filteredData: MenuItems[]) => {};
+  const handleChange = (filteredData: MenuItems[]) => {
+    setItems(filteredData);
+  };
 
   return (
     <div>
@@ -44,7 +43,7 @@ const Restaurant = () => {
       <div className="restaurantcontainer">
         <h1>{restaurantData?.restaurant[0]?.data?.name}</h1>
         <p>ID: {restaurantData?.restaurant[0]?.data?.id}</p>
-        {restaurantData?.MenuItems.map((menuItem) => {
+        {items.map((menuItem) => {
           return (
             <div className="menuItems" key={menuItem.card.info.id}>
               <MenuItem menuItem={menuItem} />

@@ -25,5 +25,5 @@ export type restaurant = {
 };
 
 export const isRestaurant = (data: any): boolean => {
-  return "data" in data && "info" in data.card && "id" in data.card.info;
+  return "data" in data && "id" in data.data;
 };
