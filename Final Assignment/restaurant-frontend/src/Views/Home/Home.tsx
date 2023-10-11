@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { fetchRestaurants } from "../../Http-Services/getAllRestaurants";
 import RestaurantCard from "./Components/RestaurantCard";
 import "./Home.css";
@@ -8,13 +8,16 @@ import {
   fetchRestaurantsFailure,
   fetchRestaurantsSuccess,
 } from "../../Redux/Slices/restaurantSlice";
-import { selectAllRestaurants } from "../../Redux/Selectors/restaurantsSelectors";
 import { useNavigate } from "react-router-dom";
+import SearchBar from "../../Components/SearchBar/SearchBar";
+import { restaurant } from "../../Types/restaurantTypes";
+import { selectAllRestaurants } from "../../Redux/Selectors/restaurantsSelectors";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const AllRestaurants = useSelector(selectAllRestaurants);
   const navigate = useNavigate();
+  const [restaurants, setRestaurants] = useState<restaurant[]>([]);
+  const AllRestaurants = useSelector(selectAllRestaurants);
 
   useEffect(() => {
     dispatch(fetchRestaurantsStart());
@@ -28,10 +31,15 @@ const Home = () => {
     navigate(`restaurant/${id}`);
   };
 
+  const handleChange = (filteredData: restaurant[]) => {
+    setRestaurants(filteredData);
+  };
+
   return (
     <div>
+      <SearchBar setSearchResults={handleChange} searchItems={AllRestaurants} />
       <div className="homeContainer">
-        {AllRestaurants.map((restaurant, key) => {
+        {restaurants.map((restaurant, key) => {
           return (
             <div
               className="card"
