@@ -1,16 +1,11 @@
-.homeContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 0.5rem;
-}
-
-.card {
+.menuItems {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   box-shadow: 0rem 0rem 0.5rem 0rem gray;
   padding: 1rem;
   border-radius: 0.5rem;
   text-align: left;
   gap: 0.6rem;
   margin: 1rem;
+  cursor: pointer;
 }

@@ -1,11 +1,13 @@
 import React from "react";
 import "./App.css";
-import Login from "./Pages/Login/Login";
+import Login from "./Views/Login/Login";
 import Navbar from "./Components/Navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
 import Footer from "./Components/Footer/Footer";
-import Home from "./Pages/Home/Home";
-import Restaurant from "./Pages/RestaurantPage/Restaurant";
+import Home from "./Views/Home/Home";
+import Restaurant from "./Views/RestaurantPage/Restaurant";
+import Cart from "./Views/Cart/Cart";
+import PageNotFound from "./Views/404/404";
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/restaurant" element={<Restaurant />} />
+        <Route path="/restaurant/:id" element={<Restaurant />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />
     </div>

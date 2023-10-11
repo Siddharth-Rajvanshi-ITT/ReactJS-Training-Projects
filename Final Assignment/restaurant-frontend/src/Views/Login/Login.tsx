@@ -4,23 +4,21 @@ import google from "../../Assets/Images/Icons/google.svg";
 import facebook from "../../Assets/Images/Icons/facebook.svg";
 import twitter from "../../Assets/Images/Icons/twitter.svg";
 import { restaurantName } from "../../Utilities/Constansts";
-import { loginUser } from "../../http-services/loginUser";
-import { Link } from "react-router-dom";
+import { loginUser } from "../../Http-Services/loginUser";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../Redux/Slices/authSlice";
 import constant from "../../Utilities/Constansts/lableConstancts.json";
+import { selectAuth } from "../../Redux/Selectors/authSelector";
 
 const Login = () => {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [invalidCheck, setInvalidCheck] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
-  const isAuthenticated = useSelector(
-    (state: { auth: { isAuthenticated: boolean } }) =>
-      state.auth.isAuthenticated
-  );
-
-  console.log(constant);
+  const { isAuthenticated } = useSelector(selectAuth);
 
   const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUsername(e.target.value);
@@ -48,9 +46,10 @@ const Login = () => {
       (e.type === "keydown" && (e as React.KeyboardEvent).key === "Enter")
     ) {
       const LoginData = await loginCheck();
-      console.log(LoginData);
-      dispatch(login(LoginData));
-      console.log(isAuthenticated);
+
+      LoginData && dispatch(login(LoginData)) && setInvalidCheck(false);
+      LoginData && navigate("/");
+      LoginData || setInvalidCheck(true);
     }
   };
 
@@ -84,6 +83,11 @@ const Login = () => {
           {isAuthenticated && (
             <h3 style={{ color: "white", fontWeight: 500 }}>
               Logged in successfully
+            </h3>
+          )}
+          {invalidCheck && (
+            <h3 style={{ color: "red", fontWeight: 500 }}>
+              Invalid Credentials
             </h3>
           )}
           <button className="LoginBtn" onClick={handleSubmit}>
