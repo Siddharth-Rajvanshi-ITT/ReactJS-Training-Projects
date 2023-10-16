@@ -1,0 +1,9 @@
+.itemImg {
+  border-radius: 0.5rem;
+  max-width: 19vw;
+}
+
+.menuItems {
+  display: grid;
+  gap: 1rem;
+}

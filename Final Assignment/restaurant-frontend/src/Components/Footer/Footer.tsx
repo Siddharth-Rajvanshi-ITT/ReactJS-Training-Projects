@@ -1,11 +1,12 @@
 import React from "react";
-import "./Footer.css";
+import styles from "./Footer.module.css";
+import constants from "../../Utilities/Constansts/lableConstancts.json";
 
 const Footer = () => {
   return (
-    <div className="footer">
-      <p>Copyright@2023 Sid All Rights Reserved</p>
-      <p>Made with ❤ by Sid</p>
+    <div className={styles.footer}>
+      <p>{constants.footer.copyright}</p>
+      <p>{constants.footer.madeBy}</p>
     </div>
   );
 };

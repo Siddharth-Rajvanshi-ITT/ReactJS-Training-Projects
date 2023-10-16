@@ -1,21 +1,36 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCart } from "../../Redux/Selectors/cartSelectors";
-import { emptyCart } from "../../Redux/Slices/cartSlice";
+import { actions } from "../../Redux/Slices/cartSlice";
+import constants from "../../Utilities/Constansts/lableConstancts.json";
+import CartCard from "./Compomnents/CartCard";
+import styles from "./Cart.module.css";
 
 const Cart = () => {
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
 
   const hanldeEmptyCart = () => {
-    dispatch(emptyCart());
+    dispatch(actions.emptyCart());
   };
 
   return (
     <div>
-      {cart.isEmpty ? "Cart Empty" : "Cart is not empty"}
+      {cart.isEmpty ? constants.cart.emptyCartMessage : "Cart is not empty"}
+      <div className={styles.cartContainer}>
+        {cart.cartItems.map((item, key) => {
+          console.log(item);
+          return (
+            <div key={key} className={styles.card}>
+              <CartCard cartItem={item} />
+            </div>
+          );
+        })}
+      </div>
       <br />
-      <button onClick={hanldeEmptyCart}>Empty Cart</button>
+      {!cart.isEmpty && (
+        <button onClick={hanldeEmptyCart}>{constants.cart.emptyCart}</button>
+      )}
     </div>
   );
 };

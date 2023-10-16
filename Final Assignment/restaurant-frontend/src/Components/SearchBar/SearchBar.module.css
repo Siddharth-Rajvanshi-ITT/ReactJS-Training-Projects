@@ -1,0 +1,29 @@
+.input {
+  width: 40vw;
+  height: 25px;
+  border-radius: 0;
+  border: none;
+}
+
+.searchBtn {
+  width: 10vw;
+  border-radius: 0 0.3rem 0.3rem 0;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 5px;
+  border: solid 3px #cc3333;
+  width: 70vw;
+  margin: 0 auto;
+}
+
+.category {
+  padding: 0 1rem;
+  font-weight: 600;
+  color: gray;
+}

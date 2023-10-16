@@ -1,4 +1,4 @@
-import { restaurant } from "../../Types/restaurantTypes";
+import { restaurant } from "../../Views/Home/Types/restaurantTypes";
 
 const selectIsAuthenticated = (state: { auth: { isAuthenticated: boolean } }) =>
   state.auth.isAuthenticated;

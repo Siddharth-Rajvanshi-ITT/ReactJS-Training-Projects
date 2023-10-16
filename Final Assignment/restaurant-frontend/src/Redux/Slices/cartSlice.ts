@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { cartType } from "../Types/cartType";
 
-const initialState = {
-  cartItems: [] as never[],
+const initialState: cartType = {
+  cartItems: [],
   isEmpty: true,
 };
 
@@ -10,11 +11,14 @@ const cartSlice = createSlice({
   initialState: initialState,
   reducers: {
     addToCart: (state, action) => {
-      const newCart = state.cartItems.includes(action.payload as never)
-        ? state.cartItems
-        : [...state.cartItems, action.payload];
-      state.cartItems = newCart as never[];
-      state.isEmpty = false;
+      const isItemInCart = state.cartItems.some(
+        (item: { id: number }) => item.id === action.payload.id
+      );
+
+      if (!isItemInCart) {
+        state.cartItems = [...state.cartItems, action.payload as never];
+        state.isEmpty = false;
+      }
     },
     emptyCart: (state) => {
       state.cartItems = [];
@@ -23,6 +27,4 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, emptyCart } = cartSlice.actions;
-
-export default cartSlice.reducer;
+export const { actions, reducer } = cartSlice;

@@ -1,6 +1,8 @@
+import { item } from "../../Views/RestaurantPage/Types/item";
+
 const selectCart = (state: {
   cart: {
-    cartItems: number[];
+    cartItems: item[];
     isEmpty: boolean;
   };
 }) => state.cart;

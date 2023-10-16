@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { fetchRestaurants } from "../../Http-Services/getAllRestaurants";
 import RestaurantCard from "./Components/RestaurantCard";
-import "./Home.css";
+import styles from "./Home.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchRestaurantsStart,
-  fetchRestaurantsFailure,
-  fetchRestaurantsSuccess,
-} from "../../Redux/Slices/restaurantSlice";
+import { actions } from "../../Redux/Slices/restaurantSlice";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../../Components/SearchBar/SearchBar";
-import { restaurant } from "../../Types/restaurantTypes";
+import { restaurant } from "./Types/restaurantTypes";
 import { selectAllRestaurants } from "../../Redux/Selectors/restaurantsSelectors";
 
 const Home = () => {
@@ -20,11 +16,11 @@ const Home = () => {
   const AllRestaurants = useSelector(selectAllRestaurants);
 
   useEffect(() => {
-    dispatch(fetchRestaurantsStart());
+    dispatch(actions.fetchRestaurantsStart());
 
     fetchRestaurants()
-      .then((data) => dispatch(fetchRestaurantsSuccess(data.data)))
-      .catch((error) => dispatch(fetchRestaurantsFailure(error)));
+      .then((data) => dispatch(actions.fetchRestaurantsSuccess(data.data)))
+      .catch((error) => dispatch(actions.fetchRestaurantsFailure(error)));
   }, [dispatch]);
 
   const handleNavigate = (id: number) => {
@@ -36,13 +32,23 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <SearchBar setSearchResults={handleChange} searchItems={AllRestaurants} />
-      <div className="homeContainer">
+    <div className={styles.container}>
+      <div className={styles.searchSection}>
+        <h1 className={styles.searchHeading}>Discover & Book</h1>
+        <h3 className={styles.subheading}>
+          The best restaurants at the best price
+        </h3>
+        <SearchBar
+          setSearchResults={handleChange}
+          searchItems={AllRestaurants}
+        />
+      </div>
+      <h1>Visit Your Favourite Restaurants</h1>
+      <div className={styles.homeContainer}>
         {restaurants.map((restaurant, key) => {
           return (
             <div
-              className="card"
+              className={styles.card}
               onClick={() => handleNavigate(restaurant.data.id)}
               key={key}
             >

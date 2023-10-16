@@ -1,37 +1,39 @@
 import React from "react";
-import "./Navbar.css";
+import styles from "./Navbar.module.css";
 import logo from "../../Assets/Images/Logos/Logos.jpg";
-import { restaurantName } from "../../Utilities/Constansts";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../Redux/Slices/authSlice";
+import { actions } from "../../Redux/Slices/authSlice";
 import { selectAuth } from "../../Redux/Selectors/authSelector";
+import constants from "../../Utilities/Constansts/lableConstancts.json";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-
   const { user, isAuthenticated } = useSelector(selectAuth);
 
   const handleLogout = () => {
-    dispatch(logout());
+    dispatch(actions.logout());
+    localStorage.removeItem("username");
   };
 
   return (
-    <div className="Navbar">
-      <div className="navLogo">
+    <div className={styles.Navbar}>
+      <div className={styles.navLogo}>
         <img src={logo} alt="" />
-        <h2>{restaurantName}</h2>
+        <h2>{constants.restaurantDetails.restaurantName}</h2>
       </div>
-      <div className="menu">
-        <Link to="/">Home</Link>
-        <Link to="/about">About Us</Link>
-        <Link to="/cart">Cart</Link>
+      <div className={styles.menu}>
+        <Link to="/">{constants.menu.home}</Link>
+        <Link to="/about">{constants.menu.aboutUs}</Link>
+        <Link to="/cart">{constants.menu.cart}</Link>
         {!isAuthenticated ? (
-          <Link to="/login">Login</Link>
+          <Link to="/login">{constants.login.login}</Link>
         ) : (
           <Link to="/profile">{user?.username}</Link>
         )}
-        {isAuthenticated && <button onClick={handleLogout}>Logout</button>}
+        {isAuthenticated && (
+          <button onClick={handleLogout}>{constants.logout.logout}</button>
+        )}
       </div>
     </div>
   );

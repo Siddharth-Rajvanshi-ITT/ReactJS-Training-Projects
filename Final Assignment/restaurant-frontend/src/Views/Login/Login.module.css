@@ -1,24 +1,3 @@
-:root {
-  --primary-color: #f4f1ec;
-  --secondary-color: #e4e0da;
-}
-
-* {
-  font-family: "Mukta";
-  color: #041f3a;
-  margin: 0;
-}
-
-p {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: #041f3a;
-}
-
-a {
-  text-decoration: none;
-  cursor: pointer;
-}
-
 input {
   border-radius: 0.3rem;
   border: solid 1px gray;
@@ -30,25 +9,23 @@ input::placeholder {
   font-weight: 600;
 }
 
-.login-container {
+.loginContainer {
   min-height: 38rem;
   display: flex;
   font-family: Okra, Helvetica, sans-serif;
-  /* background-color: var(--secondary-color); */
   background-image: url("/src/Assets/Images/login-background.png");
   background-size: cover;
   flex-direction: column;
-  /* padding: 1rem; */
   justify-content: center;
 }
 
-.login-container p,
-.login-container h1,
-.login-container label {
+.loginContainer p,
+.loginContainer h1,
+.loginContainer label {
   color: white;
 }
 
-.login-box {
+.loginBox {
   display: flex;
   align-items: center;
   height: 23rem;
@@ -58,19 +35,19 @@ input::placeholder {
   border-radius: 0.7rem;
 }
 
-.login-box > div {
+.loginBox > div {
   width: 100%;
 }
 
-.login-box {
+.loginBox {
   padding: 20px;
-  background: rgba(255, 255, 255, 0.15); /* Transparent background color */
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
 }
 
-.login-form {
+.loginForm {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -80,16 +57,14 @@ input::placeholder {
 
 .LoginBtn,
 .signupBtn {
-  /* margin: auto; */
-  height: 2rem;
+  /* height: 2rem; */
   min-width: 20rem;
-  /* max-width: 15rem; */
   border: none;
   border-radius: 0.5rem;
   margin: 0.4rem;
   color: white;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
 }
 
 .signupBtn {
@@ -101,16 +76,21 @@ input::placeholder {
   font-weight: 600;
 }
 
-.continue-with {
+.continueWith {
   margin: 2rem;
   display: flex;
   justify-content: center;
 }
 
-.continue-with hr {
+.continueWith hr {
   min-width: 30%;
   margin: auto;
   background-color: #fff;
   border: none;
   height: 1px;
+}
+
+.loginLogo {
+  height: 3rem;
+  margin: 0 1rem;
 }

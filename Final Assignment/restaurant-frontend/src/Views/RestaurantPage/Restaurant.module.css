@@ -1,0 +1,56 @@
+.restaurantcontainer {
+  padding: 2rem;
+}
+
+.menuItems {
+  display: flex;
+  box-shadow: 0rem 0rem 0.5rem 0rem gray;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: left;
+  gap: 0.6rem;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.detailsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  text-align: left;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.restaurantImg {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.menuContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.actionBtns {
+  display: flex;
+  gap: 1rem;
+}
+
+.shareSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.shareIcons {
+  height: 1.5rem;
+}

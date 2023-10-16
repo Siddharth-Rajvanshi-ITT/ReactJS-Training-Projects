@@ -1,0 +1,54 @@
+.homeContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  padding: 2rem 3rem;
+  color: white;
+  /* background-image: url("../../Assets/Images/background.png"); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.searchSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 35rem;
+  background-image: url("https://images.unsplash.com/photo-1533777419517-3e4017e2e15a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80");
+  background-position: center;
+  color: #fff;
+  margin-bottom: 3rem;
+}
+
+.searchSection::before {
+  content: "";
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.searchSection * {
+  z-index: 1;
+}
+
+.searchHeading {
+  font-size: 40px;
+}
+
+.subheading {
+  font-weight: 400;
+  font-size: 25px;
+}
+
+.card * {
+  z-index: 1;
+}

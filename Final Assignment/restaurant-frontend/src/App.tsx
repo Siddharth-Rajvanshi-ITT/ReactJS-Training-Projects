@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Login from "./Views/Login/Login";
 import Navbar from "./Components/Navbar/Navbar";
@@ -7,9 +7,36 @@ import Footer from "./Components/Footer/Footer";
 import Home from "./Views/Home/Home";
 import Restaurant from "./Views/RestaurantPage/Restaurant";
 import Cart from "./Views/Cart/Cart";
-import PageNotFound from "./Views/404/404";
+import PageNotFound from "./Views/PageNotFound/PageNotFound";
+import { fetchUsers } from "./Http-Services/getUsersService";
+import { useDispatch, useSelector } from "react-redux";
+import { actions } from "./Redux/Slices/authSlice";
+import { selectAuth } from "./Redux/Selectors/authSelector";
+
+type user = {
+  username: string;
+};
 
 function App() {
+  const dispatch = useDispatch();
+  const { rememberUser } = useSelector(selectAuth);
+
+  useEffect(() => {
+    const checkUserLogin = async () => {
+      const users = await fetchUsers();
+
+      const isUser = users.data.filter((item: user) => {
+        return item.username === localStorage.getItem("username");
+      });
+
+      console.log(isUser);
+
+      isUser[0] && dispatch(actions.login(isUser[0]));
+    };
+
+    rememberUser && checkUserLogin();
+  }, [dispatch, rememberUser]);
+
   return (
     <div className="App">
       <Navbar />

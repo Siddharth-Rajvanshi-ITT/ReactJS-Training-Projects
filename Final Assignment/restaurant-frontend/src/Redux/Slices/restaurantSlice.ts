@@ -1,7 +1,7 @@
-// restaurantSlice.js
 import { createSlice } from "@reduxjs/toolkit";
+import { restaurantType } from "../Types/restaurantType";
 
-const initialState = {
+const initialState: restaurantType = {
   restaurants: [],
   loading: false,
   error: null,
@@ -28,10 +28,4 @@ const restaurantSlice = createSlice({
   },
 });
 
-export const {
-  fetchRestaurantsStart,
-  fetchRestaurantsSuccess,
-  fetchRestaurantsFailure,
-} = restaurantSlice.actions;
-
-export default restaurantSlice.reducer;
+export const { actions, reducer } = restaurantSlice;

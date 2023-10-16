@@ -1,6 +1,30 @@
 {
+  "menu": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "cart": "Cart"
+  },
   "login": {
     "login": "Login",
-    "signUp": "Create Account"
+    "signUp": "Create Account",
+    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Remember Me",
+    "successfulLoginMessage": "Logged in successfully",
+    "loginErrorMessage": "Invalid Credentials"
+  },
+  "logout": {
+    "logout": "Logout"
+  },
+  "restaurantDetails": {
+    "restaurantName": "FoodInTime"
+  },
+  "cart": {
+    "addToCard": "Add to cart",
+    "emptyCart": "Empty Cart",
+    "emptyCartMessage": "Cart Empty"
+  },
+  "footer": {
+    "copyright": "Copyright@2023 Sid All Rights Reserved",
+    "madeBy": "Made with ❤ by Sid"
   }
 }

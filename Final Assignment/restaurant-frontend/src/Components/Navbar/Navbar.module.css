@@ -8,20 +8,23 @@
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 2rem;
-  background-color: #faf1e0;
+  background-color: #48992d;
 }
 
 .navLogo,
-.menu {
+.menu,
+.navLogo h2 {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  color: white;
 }
 
 .menu a {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.2rem;
+  color: white;
 }
 
 .navLogo img {
@@ -30,12 +33,13 @@
 }
 
 button {
-  background-color: #041f3a;
+  background-color: #cc3333;
   padding: 0.15rem 1.5rem;
-  border-radius: 1rem;
+  border-radius: 0.3rem;
   border: none;
   color: white;
   font-weight: 500;
   font-size: 1.1rem;
   cursor: pointer;
+  padding: 0.5rem 1rem;
 }
