@@ -2,7 +2,7 @@
   padding: 2rem;
 }
 
-.menuItems {
+/* .menuItems {
   display: flex;
   box-shadow: 0rem 0rem 0.5rem 0rem gray;
   padding: 1rem;
@@ -11,7 +11,7 @@
   gap: 0.6rem;
   margin: 1rem;
   cursor: pointer;
-}
+} */
 
 .detailsContainer {
   display: grid;
@@ -36,8 +36,10 @@
 }
 
 .menuContainer {
+  margin: 3rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
 }
 
 .actionBtns {
@@ -53,4 +55,11 @@
 
 .shareIcons {
   height: 1.5rem;
+}
+
+.menuItems {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  /* border: solid 2px lightgray; */
+  box-shadow: 0 0 0.3rem gray;
 }

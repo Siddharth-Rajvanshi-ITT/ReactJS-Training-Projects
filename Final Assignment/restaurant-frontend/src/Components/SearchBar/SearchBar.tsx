@@ -31,14 +31,14 @@ const SearchBar = (props: inputSearch) => {
           }
         );
 
-        if (veg) {
+        if (veg && !nonVeg) {
           filteredData = filteredData.filter((item) => {
             return item.data.veg;
           });
           console.log(filteredData);
         }
 
-        if (nonVeg) {
+        if (nonVeg && !veg) {
           filteredData = filteredData.filter((item) => {
             return !item.data.veg;
           });

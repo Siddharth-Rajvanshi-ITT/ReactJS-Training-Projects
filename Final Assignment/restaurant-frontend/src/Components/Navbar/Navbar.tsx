@@ -19,8 +19,12 @@ const Navbar = () => {
   return (
     <div className={styles.Navbar}>
       <div className={styles.navLogo}>
-        <img src={logo} alt="" />
-        <h2>{constants.restaurantDetails.restaurantName}</h2>
+        <Link to={"/"}>
+          <img src={logo} alt="" />
+        </Link>
+        <Link to={"/"}>
+          <h2>{constants.restaurantDetails.restaurantName}</h2>
+        </Link>
       </div>
       <div className={styles.menu}>
         <Link to="/">{constants.menu.home}</Link>

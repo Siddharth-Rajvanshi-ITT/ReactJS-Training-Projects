@@ -7,6 +7,7 @@
 .Navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.5rem 2rem;
   background-color: #48992d;
 }
@@ -30,16 +31,4 @@
 .navLogo img {
   border-radius: 50%;
   height: 3rem;
-}
-
-button {
-  background-color: #cc3333;
-  padding: 0.15rem 1.5rem;
-  border-radius: 0.3rem;
-  border: none;
-  color: white;
-  font-weight: 500;
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: 0.5rem 1rem;
 }

@@ -16,7 +16,18 @@
     "logout": "Logout"
   },
   "restaurantDetails": {
-    "restaurantName": "FoodInTime"
+    "restaurantName": "FoodInTime",
+    "price": "Price",
+    "bestSeller": "Best Seller",
+    "reviews": "Reviews",
+    "currency": "Rs",
+    "shareLink": "Share Link",
+    "address": "Address",
+    "restaurantCode": "Restaurant Code",
+    "availability": "Availability",
+    "rating": "Rating",
+    "addToFavorite": "Add to Favorite",
+    "removeFavorite": "Remove From Favorite"
   },
   "cart": {
     "addToCard": "Add to cart",

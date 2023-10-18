@@ -14,4 +14,12 @@ export type item = {
       isVeg: number;
     }[];
   };
+  isBestseller: boolean;
+  ratings: {
+    aggregatedRating: {
+      rating: string;
+      ratingCount: string;
+      ratingCountV2: string;
+    };
+  };
 };

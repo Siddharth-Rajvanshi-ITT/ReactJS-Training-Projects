@@ -10,12 +10,14 @@ const Cart = () => {
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();
 
+  console.log(cart);
+
   const hanldeEmptyCart = () => {
     dispatch(actions.emptyCart());
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {cart.isEmpty ? constants.cart.emptyCartMessage : "Cart is not empty"}
       <div className={styles.cartContainer}>
         {cart.cartItems.map((item, key) => {

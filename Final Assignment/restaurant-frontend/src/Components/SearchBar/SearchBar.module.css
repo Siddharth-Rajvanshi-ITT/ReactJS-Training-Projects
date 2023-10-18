@@ -5,6 +5,10 @@
   border: none;
 }
 
+.input:focus-visible {
+  outline-color: white;
+}
+
 .searchBtn {
   width: 10vw;
   border-radius: 0 0.3rem 0.3rem 0;
@@ -18,7 +22,7 @@
   border-radius: 0.5rem;
   padding: 5px;
   border: solid 3px #cc3333;
-  width: 70vw;
+  width: 67vw;
   margin: 0 auto;
 }
 
