@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getRestaurant } from "../../Http-Services/getRestaurant";
 import styles from "./Restaurant.module.css";
-import MenuItem from "./Components/MenuItems";
+import MenuItem from "./Components/MenuItems/MenuItems";
 import SearchBar from "../../Components/SearchBar/SearchBar";
 import { MenuItems } from "./Types/menuTypes";
 import { restaurant } from "../Home/Types/restaurantTypes";
@@ -63,7 +63,7 @@ const Restaurant = () => {
     <>
       {restaurantData ? (
         <div>
-          {restaurantData && (
+          {
             <div className={styles.restaurantcontainer}>
               <div className={styles.detailsContainer}>
                 <div>
@@ -132,7 +132,7 @@ const Restaurant = () => {
                 })}
               </div>
             </div>
-          )}
+          }
         </div>
       ) : (
         <RestaurantSkeleton />

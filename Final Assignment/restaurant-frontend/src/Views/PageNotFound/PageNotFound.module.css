@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  min-height: calc(100vh - 10.05rem);
+  gap: 1rem;
+}
+
+.image {
+  height: 50vh;
+}

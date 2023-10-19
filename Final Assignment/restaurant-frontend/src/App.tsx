@@ -12,6 +12,7 @@ import { fetchUsers } from "./Http-Services/getUsersService";
 import { useDispatch, useSelector } from "react-redux";
 import { actions } from "./Redux/Slices/authSlice";
 import { selectAuth } from "./Redux/Selectors/authSelector";
+import Checkout from "./Views/Checkout/Checkout";
 
 type user = {
   username: string;
@@ -45,6 +46,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/restaurant/:id" element={<Restaurant />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Footer />

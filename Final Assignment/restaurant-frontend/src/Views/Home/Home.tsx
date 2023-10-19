@@ -13,6 +13,7 @@ import HomeSkeleton from "./Components/Skeleton/Index";
 const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isloading, setIsLoading] = useState<boolean>(true);
   const [restaurants, setRestaurants] = useState<restaurant[]>([]);
   const AllRestaurants = useSelector(selectAllRestaurants);
 
@@ -21,8 +22,8 @@ const Home = () => {
 
     fetchRestaurants()
       .then((data) => {
-        console.log(data);
-        // dispatch(actions.fetchRestaurantsSuccess(data.data));
+        setIsLoading(false);
+        dispatch(actions.fetchRestaurantsSuccess(data.data));
       })
       .catch((error) => dispatch(actions.fetchRestaurantsFailure(error)));
   }, [dispatch]);
@@ -37,7 +38,7 @@ const Home = () => {
 
   return (
     <>
-      {restaurants ? (
+      {!isloading ? (
         <div className={styles.container}>
           <div className={styles.searchSection}>
             <h1 className={styles.searchHeading}>Discover & Book</h1>

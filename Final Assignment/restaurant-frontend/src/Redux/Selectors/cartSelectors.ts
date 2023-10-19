@@ -7,4 +7,15 @@ const selectCart = (state: {
   };
 }) => state.cart;
 
-export { selectCart };
+const selectTotalPrice = (state: {
+  cart: {
+    cartItems: item[];
+    isEmpty: boolean;
+  };
+}) => {
+  return state.cart.cartItems.reduce((total, item) => {
+    return total + item.price * item.counter;
+  }, 0);
+};
+
+export { selectCart, selectTotalPrice };

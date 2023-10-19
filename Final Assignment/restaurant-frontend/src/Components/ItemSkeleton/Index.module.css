@@ -1,30 +1,52 @@
 .containerSkeleton {
-  border: solid 2px grey;
   border-radius: 0.5rem;
-  background: lightgray;
   padding: 0.7rem;
 }
 
 .itemImageSkeleton {
   height: 7rem;
-  background-color: gray;
   border-radius: 0.3rem;
-  border: gray 3px solid;
   padding: 0.5rem;
   margin: auto;
+  background-color: lightgray;
 }
 
 .fillDiv {
   height: 0.6rem;
-  background: gray;
   margin: 0.5rem;
+  background-color: lightgray;
 }
 
 .buttonSkeleton {
   height: 1.3rem;
-  background-color: gray;
   border-radius: 0.3rem;
-  border: gray 3px solid;
   padding: 0.5rem;
   margin: auto;
+  background-color: lightgray;
+}
+
+.skeleton {
+  animation: skeleton-loading 1.5s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #e5e5e5;
+  }
+  100% {
+    background-color: #d5d5d5;
+  }
+}
+
+.ReverseSkeleton {
+  animation: ReverseSkeleton-loading 1.5s linear infinite alternate;
+}
+
+@keyframes ReverseSkeleton-loading {
+  0% {
+    background-color: #d5d5d5;
+  }
+  100% {
+    background-color: #e5e5e5;
+  }
 }

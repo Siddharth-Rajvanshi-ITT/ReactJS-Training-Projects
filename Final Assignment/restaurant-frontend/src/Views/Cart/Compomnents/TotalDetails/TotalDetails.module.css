@@ -1,0 +1,17 @@
+.totalDetails div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.totalDetails {
+  display: grid;
+  gap: 1rem;
+}
+
+.totalCard {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0 0.2rem gray;
+  border-radius: 1rem;
+}

@@ -32,7 +32,16 @@
   "cart": {
     "addToCard": "Add to cart",
     "emptyCart": "Empty Cart",
-    "emptyCartMessage": "Cart Empty"
+    "emptyCartMessage": "Cart Empty",
+    "product": "Product",
+    "count": "Count",
+    "price": "Price",
+    "remove": "Remove",
+    "proceedToCheckout": "Proceed to checkout",
+    "promoCode": "Promo Code",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "total": "Total"
   },
   "footer": {
     "copyright": "Copyright@2023 Sid All Rights Reserved",

@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { cartType } from "../Types/cartType";
+import { item } from "../../Views/RestaurantPage/Types/item";
 
 const initialState: cartType = {
   cartItems: [],
@@ -16,13 +17,39 @@ const cartSlice = createSlice({
       );
 
       if (!isItemInCart) {
-        state.cartItems = [...state.cartItems, action.payload as never];
+        state.cartItems = [
+          ...state.cartItems,
+          { ...action.payload, counter: 1 } as never,
+        ];
         state.isEmpty = false;
       }
+    },
+    removeFromCart: (state, action) => {
+      state.cartItems = state.cartItems.filter((item) => {
+        return item.id !== action.payload;
+      });
+
+      state.isEmpty = state.cartItems.length ? false : true;
     },
     emptyCart: (state) => {
       state.cartItems = [];
       state.isEmpty = true;
+    },
+    increaseCount: (state, action) => {
+      state.cartItems = state.cartItems.map((item: item) => {
+        if (item.id === action.payload) {
+          return { ...item, counter: item.counter + 1 };
+        }
+        return item;
+      });
+    },
+    decreaseCount: (state, action) => {
+      state.cartItems = state.cartItems.map((item: item) => {
+        if (item.id === action.payload && item.counter > 1) {
+          return { ...item, counter: item.counter - 1 };
+        }
+        return item;
+      });
     },
   },
 });

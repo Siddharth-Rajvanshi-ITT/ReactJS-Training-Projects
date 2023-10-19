@@ -51,14 +51,14 @@
 }
 
 .menuHeading {
-  background-color: gray;
+  background-color: lightgray;
   height: 2rem;
   width: 50vw;
   margin: auto;
 }
 
 .searchBar {
-  background-color: gray;
+  background-color: lightgray;
   height: 3rem;
   width: 70vw;
   margin: auto;
@@ -69,4 +69,30 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
+}
+
+.skeleton {
+  animation: skeleton-loading 1.5s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #e5e5e5;
+  }
+  100% {
+    background-color: #d5d5d5;
+  }
+}
+
+.ReverseSkeleton {
+  animation: ReverseSkeleton-loading 1.5s linear infinite alternate;
+}
+
+@keyframes ReverseSkeleton-loading {
+  0% {
+    background-color: #d5d5d5;
+  }
+  100% {
+    background-color: #e5e5e5;
+  }
 }

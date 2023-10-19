@@ -3,14 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectCart } from "../../Redux/Selectors/cartSelectors";
 import { actions } from "../../Redux/Slices/cartSlice";
 import constants from "../../Utilities/Constansts/lableConstancts.json";
-import CartCard from "./Compomnents/CartCard";
+import CartCard from "./Compomnents/CartCard/CartCard";
 import styles from "./Cart.module.css";
+import TotalDetails from "./Compomnents/TotalDetails/TotalDetails";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const cart = useSelector(selectCart);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  console.log(cart);
 
   const hanldeEmptyCart = () => {
     dispatch(actions.emptyCart());
@@ -18,21 +19,36 @@ const Cart = () => {
 
   return (
     <div className={styles.container}>
-      {cart.isEmpty ? constants.cart.emptyCartMessage : "Cart is not empty"}
       <div className={styles.cartContainer}>
-        {cart.cartItems.map((item, key) => {
-          console.log(item);
-          return (
-            <div key={key} className={styles.card}>
-              <CartCard cartItem={item} />
-            </div>
-          );
-        })}
+        <table>
+          <thead>
+            <tr className={styles.itemTable}>
+              <th>{constants.cart.product}</th>
+              <th>{constants.cart.count}</th>
+              <th>{constants.cart.price}</th>
+              <th>{constants.cart.remove}</th>
+            </tr>
+          </thead>
+          <hr />
+          <tbody className={styles.tableContainer}>
+            {cart.cartItems.map((item) => (
+              <CartCard key={item.id} cartItem={item} />
+            ))}
+          </tbody>
+        </table>
+        {!cart.isEmpty && (
+          <button onClick={hanldeEmptyCart}>{constants.cart.emptyCart}</button>
+        )}
       </div>
-      <br />
-      {!cart.isEmpty && (
-        <button onClick={hanldeEmptyCart}>{constants.cart.emptyCart}</button>
-      )}
+      <div className={styles.totalDetails}>
+        <TotalDetails />
+        <button
+          className={styles.checkoutBtn}
+          onClick={() => navigate("/checkout")}
+        >
+          {constants.cart.proceedToCheckout}
+        </button>
+      </div>
     </div>
   );
 };

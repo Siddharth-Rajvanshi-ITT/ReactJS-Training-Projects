@@ -11,11 +11,13 @@ const HomeSkeleton = () => {
 
   return (
     <div>
-      <div className={styles.imageContainer}>
-        <div className={styles.restaurantDetailsContainer}>
-          <div className={styles.line}></div>
-          <div className={styles.line}></div>
-          <div className={styles.button}></div>
+      <div className={`${styles.imageContainer} ${styles.skeleton}`}>
+        <div
+          className={`${styles.restaurantDetailsContainer} ${styles.skeleton}`}
+        >
+          <div className={`${styles.line} ${styles.ReverseSkeleton}`}></div>
+          <div className={`${styles.line} ${styles.ReverseSkeleton}`}></div>
+          <div className={`${styles.button} ${styles.ReverseSkeleton}`}></div>
         </div>
       </div>
       <div className={styles.menuContainer}>

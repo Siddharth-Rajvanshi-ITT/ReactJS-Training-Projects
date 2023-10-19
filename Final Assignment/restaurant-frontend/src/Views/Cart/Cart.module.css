@@ -1,11 +1,24 @@
 .container {
   margin: 2rem 0;
+  display: grid;
+  padding: 1rem;
+  gap: 1rem;
+  grid-template-columns: 3fr 1fr;
+  min-height: calc(100vh - 14.05rem);
 }
 
 .cartContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  /* grid-template-columns: ; */
   gap: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 0 0.2rem gray;
+  border-radius: 1rem;
+}
+
+.cartContainer hr {
+  margin: 1rem 0;
 }
 
 .card {
@@ -17,4 +30,24 @@
   text-align: left;
   gap: 0.6rem;
   margin: 1rem;
+}
+
+.itemTable {
+  display: grid;
+  grid-template-columns: 3fr repeat(3, 1fr);
+}
+
+.tableContainer {
+  display: grid;
+  gap: 1rem;
+}
+
+.totalDetails {
+  padding: 0 1rem;
+}
+
+.checkoutBtn {
+  margin: 1rem 0;
+  width: 100%;
+  border-radius: 0.5rem;
 }

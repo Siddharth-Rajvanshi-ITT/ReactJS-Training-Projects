@@ -1,0 +1,48 @@
+.cartCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.cartImg {
+  border-radius: 0.2rem;
+  height: 5rem;
+}
+
+.productDetailsContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.counterContainer {
+  display: grid;
+  align-items: center;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.itemContainer {
+  display: grid;
+  width: 100%;
+  gap: 1.5rem;
+  grid-template-columns: 3fr 1fr 1fr 1fr;
+}
+
+.counterBtn {
+  cursor: pointer;
+  border: solid 1px gray;
+  border-radius: 0.2rem;
+}
+
+.priceContainer,
+.actionBtnContainer {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionBtn {
+  width: 3rem;
+  height: 3rem;
+}

@@ -22,4 +22,5 @@ export type item = {
       ratingCountV2: string;
     };
   };
+  counter: number;
 };

@@ -1,11 +1,11 @@
 import React from "react";
-import { MenuItems } from "../Types/menuTypes";
+import { MenuItems } from "../../Types/menuTypes";
 import styles from "./MenuItems.module.css";
-import yelloStar from "./../../../Assets/Images/Icons/yellowStar.svg";
-import star from "./../../../Assets/Images/Icons/star.svg";
+import yelloStar from "../../../../Assets/Images/Icons/yellowStar.svg";
+import star from "../../../../Assets/Images/Icons/star.svg";
 import { useDispatch } from "react-redux";
-import { actions } from "../../../Redux/Slices/cartSlice";
-import constants from "../../../Utilities/Constansts/lableConstancts.json";
+import { actions } from "../../../../Redux/Slices/cartSlice";
+import constants from "../../../../Utilities/Constansts/lableConstancts.json";
 
 type item = {
   menuItem: MenuItems;
