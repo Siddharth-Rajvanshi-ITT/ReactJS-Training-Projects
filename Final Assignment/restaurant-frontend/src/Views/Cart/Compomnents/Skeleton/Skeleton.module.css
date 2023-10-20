@@ -1,0 +1,48 @@
+.container {
+  min-height: calc(100vh - 10.05rem);
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 1rem;
+}
+
+.cartItemSkeleton {
+  height: calc(100% - 2rem);
+  background-color: black;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.skeleton {
+  animation: skeleton-loading 1.5s linear infinite alternate;
+}
+
+.line {
+  height: 3rem;
+  border-radius: 1rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #e5e5e5;
+  }
+  100% {
+    background-color: #d5d5d5;
+  }
+}
+
+.ReverseSkeleton {
+  animation: ReverseSkeleton-loading 1.5s linear infinite alternate;
+}
+
+@keyframes ReverseSkeleton-loading {
+  0% {
+    background-color: #d5d5d5;
+  }
+  100% {
+    background-color: #e5e5e5;
+  }
+}

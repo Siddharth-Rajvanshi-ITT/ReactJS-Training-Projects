@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getRestaurant } from "../../Http-Services/getRestaurant";
 import styles from "./Restaurant.module.css";
 import MenuItem from "./Components/MenuItems/MenuItems";
@@ -26,6 +26,7 @@ const Restaurant = () => {
   const [restaurantData, setRestaurantData] = useState<null | resData>(null);
   const [items, setItems] = useState<MenuItems[]>([]);
   const [isFav, setIsFav] = useState<boolean>(false);
+  const navigate = useNavigate();
   const param = useParams();
   const dispatch = useDispatch();
   const favRestaurants = useSelector(selectFavorite);
@@ -34,11 +35,13 @@ const Restaurant = () => {
 
   useEffect(() => {
     const fetchRestaurantData = async () => {
-      setRestaurantData(await getRestaurant(+id!));
+      const idAvailable = await getRestaurant(+id!);
+      setRestaurantData(idAvailable);
+      idAvailable || navigate("/page-not-found");
     };
 
     fetchRestaurantData();
-  }, [id]);
+  }, [id, navigate]);
 
   useEffect(() => {
     const checkFav = favRestaurants.favRestaurants.some((item) => {
