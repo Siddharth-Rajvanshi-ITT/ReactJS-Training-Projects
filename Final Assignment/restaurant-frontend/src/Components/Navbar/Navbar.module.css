@@ -32,3 +32,7 @@
   border-radius: 50%;
   height: 3rem;
 }
+
+.username {
+  font-weight: 500;
+}

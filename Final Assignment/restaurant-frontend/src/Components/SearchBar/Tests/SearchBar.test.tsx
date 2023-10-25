@@ -1,6 +1,14 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import SearchBar from "../SearchBar";
+import { restaurant } from "../../../Views/Home/Types/restaurantTypes";
+import { MenuItems } from "../../../Views/RestaurantPage/Types/menuTypes";
+
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useDispatch: jest.fn(),
+  useSelector: jest.fn(),
+}));
 
 describe("SearchBar Component", () => {
   const setSearchResults = jest.fn();
@@ -21,7 +29,7 @@ describe("SearchBar Component", () => {
   test("it updates search term on input change", () => {
     render(<SearchBar setSearchResults={setSearchResults} searchItems={[]} />);
     const inputElement = screen.getByPlaceholderText(
-      "What are you looking for"
+      "What are you looking for?"
     );
 
     fireEvent.change(inputElement, { target: { value: "burger" } });
@@ -29,31 +37,15 @@ describe("SearchBar Component", () => {
     expect(inputElement).toHaveValue("burger");
   });
 
-  test("it filters results based on search term", () => {
+  test("it filters results based on restaurant search term", () => {
     const searchItems = [
       {
         type: "restaurant",
         subtype: "veg",
         data: {
           id: 1,
-          name: "Sample Restaurant",
-          area: "Sample Area",
-          totalRatingsString: "4.5",
-          cloudinaryImageId: "sampleImageId",
-          cuisines: ["Cuisine1", "Cuisine2"],
-          address: "Sample Address",
-          deliveryTime: 30,
-          locality: "Sample Locality",
+          name: "Veg Restaurant",
           veg: true,
-          favorite: false,
-          availability: {
-            opened: true,
-            nextOpenMessage: "Open Now",
-            nextCloseMessage: "Closes in 2 hours",
-          },
-          avgRating: "4.5",
-          totalRatings: 100,
-          new: true,
         },
       },
     ];
@@ -61,11 +53,11 @@ describe("SearchBar Component", () => {
     render(
       <SearchBar
         setSearchResults={setSearchResults}
-        searchItems={searchItems}
+        searchItems={searchItems as restaurant[]}
       />
     );
     const inputElement = screen.getByPlaceholderText(
-      "What are you looking for"
+      "What are you looking for?"
     );
 
     fireEvent.change(inputElement, { target: { value: "veg" } });
@@ -77,7 +69,101 @@ describe("SearchBar Component", () => {
         data: {
           id: 1,
           name: "Veg Restaurant",
-          // ...other properties
+          veg: true,
+        },
+      },
+    ]);
+  });
+
+  test("it filters results based on menu item search term", () => {
+    const searchItems = [
+      {
+        card: {
+          info: {
+            id: 1,
+            name: "Sample Dish",
+            category: "Main Course",
+            description: "A delicious sample dish description.",
+            imageId: "sampleImageId",
+            isVeg: 1,
+            price: 10.99,
+            addons: {
+              choices: [
+                {
+                  id: 101,
+                  name: "Addon 1",
+                  price: 2.99,
+                  isVeg: 1,
+                },
+                {
+                  id: 102,
+                  name: "Addon 2",
+                  price: 1.99,
+                  isVeg: 1,
+                },
+              ],
+            },
+            isBestseller: true,
+            ratings: {
+              aggregatedRating: {
+                rating: "4.5",
+                ratingCount: "100",
+                ratingCountV2: "95",
+              },
+            },
+          },
+        },
+      },
+    ];
+
+    render(
+      <SearchBar
+        setSearchResults={setSearchResults}
+        searchItems={searchItems as MenuItems[]}
+      />
+    );
+    const inputElement = screen.getByPlaceholderText(
+      "What are you looking for?"
+    );
+
+    fireEvent.change(inputElement, { target: { value: "veg" } });
+
+    expect(setSearchResults).toHaveBeenCalledWith([
+      {
+        card: {
+          info: {
+            id: 1,
+            name: "Sample Dish",
+            category: "Main Course",
+            description: "A delicious sample dish description.",
+            imageId: "sampleImageId",
+            isVeg: 1,
+            price: 10.99,
+            addons: {
+              choices: [
+                {
+                  id: 101,
+                  name: "Addon 1",
+                  price: 2.99,
+                  isVeg: 1,
+                },
+                {
+                  id: 102,
+                  name: "Addon 2",
+                  price: 1.99,
+                  isVeg: 1,
+                },
+              ],
+            },
+            isBestseller: true,
+            ratings: {
+              aggregatedRating: {
+                rating: "4.5",
+                ratingCount: "100",
+                ratingCountV2: "95",
+              },
+            },
+          },
         },
       },
     ]);
@@ -90,24 +176,17 @@ describe("SearchBar Component", () => {
         subtype: "veg",
         data: {
           id: 1,
-          name: "Sample Restaurant",
-          area: "Sample Area",
-          totalRatingsString: "4.5",
-          cloudinaryImageId: "sampleImageId",
-          cuisines: ["Cuisine1", "Cuisine2"],
-          address: "Sample Address",
-          deliveryTime: 30,
-          locality: "Sample Locality",
+          name: "Veg Restaurant",
           veg: true,
-          favorite: false,
-          availability: {
-            opened: true,
-            nextOpenMessage: "Open Now",
-            nextCloseMessage: "Closes in 2 hours",
-          },
-          avgRating: "4.5",
-          totalRatings: 100,
-          new: true,
+        },
+      },
+      {
+        type: "restaurant",
+        subtype: "veg",
+        data: {
+          id: 2,
+          name: "Non-veg Restaurant",
+          veg: false,
         },
       },
     ];
@@ -115,7 +194,7 @@ describe("SearchBar Component", () => {
     render(
       <SearchBar
         setSearchResults={setSearchResults}
-        searchItems={searchItems}
+        searchItems={searchItems as restaurant[]}
       />
     );
     const vegCheckbox = screen.getByText("Veg");
@@ -131,6 +210,15 @@ describe("SearchBar Component", () => {
           id: 1,
           name: "Veg Restaurant",
           veg: true,
+        },
+      },
+      {
+        type: "restaurant",
+        subtype: "veg",
+        data: {
+          id: 2,
+          name: "Non-veg Restaurant",
+          veg: false,
         },
       },
     ]);
@@ -152,7 +240,7 @@ describe("SearchBar Component", () => {
         subtype: "veg",
         data: {
           id: 2,
-          name: "Non-Veg Restaurant",
+          name: "Non-veg Restaurant",
           veg: false,
         },
       },

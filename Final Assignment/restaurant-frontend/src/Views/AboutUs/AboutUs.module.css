@@ -1,0 +1,79 @@
+.container {
+  min-height: calc(100vh - 8.05rem);
+}
+
+.breadcrum {
+  background-image: url("../../Assets/Images/Breadcrum.png");
+  height: 15rem;
+  display: grid;
+  align-items: center;
+  color: white;
+}
+
+.aboutUsSection {
+  padding: 2rem 4rem;
+  display: grid;
+  grid-template-columns: 4fr 5fr;
+  margin: 3rem 1rem;
+  text-align: left;
+  gap: 3rem;
+}
+
+.aboutContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.container li {
+  list-style: none;
+  margin: 1rem 0;
+  display: grid;
+}
+
+.container ul {
+  padding: 0;
+  gap: 1rem;
+}
+
+.aboutHeading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #cc3333;
+}
+
+.aboutImg {
+  /* scale: 0.8; */
+  width: 90%;
+}
+
+.aboutImgContainer {
+  text-align: right;
+}
+
+.CtaSection {
+  height: 20rem;
+  background-image: url("../../Assets/Images/AboutUs/CTA.png");
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.CtaSection button {
+  background-color: green;
+}
+
+.teamCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem 3rem;
+}
+
+.teamSection {
+  margin: 1rem 0;
+}

@@ -8,8 +8,12 @@ import styles from "./Cart.module.css";
 import TotalDetails from "./Compomnents/TotalDetails/TotalDetails";
 import { useNavigate } from "react-router-dom";
 import Skeleton from "./Compomnents/Skeleton/Skeleton";
+import { selectAuth } from "../../Redux/Selectors/authSelector";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
+  const { isAuthenticated } = useSelector(selectAuth);
   const cart = useSelector(selectCart);
   const [showSkeleton, setShowSkeleton] = useState(true);
   const navigate = useNavigate();
@@ -21,6 +25,22 @@ const Cart = () => {
 
   const hanldeEmptyCart = () => {
     dispatch(actions.emptyCart());
+  };
+
+  const handleClick = () => {
+    isAuthenticated ||
+      toast.warn("Please login first", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+
+    cart.cartItems.length ||
+      toast.warn("Cart is empty", {
+        position: "top-right",
+        autoClose: 2000,
+      });
+
+    isAuthenticated && cart.cartItems.length && navigate("/checkout");
   };
 
   return (
@@ -52,13 +72,11 @@ const Cart = () => {
           </div>
           <div className={styles.totalDetails}>
             <TotalDetails />
-            <button
-              className={styles.checkoutBtn}
-              onClick={() => navigate("/checkout")}
-            >
+            <button className={styles.checkoutBtn} onClick={handleClick}>
               {constants.cart.proceedToCheckout}
             </button>
           </div>
+          <ToastContainer />
         </div>
       ) : (
         <Skeleton />

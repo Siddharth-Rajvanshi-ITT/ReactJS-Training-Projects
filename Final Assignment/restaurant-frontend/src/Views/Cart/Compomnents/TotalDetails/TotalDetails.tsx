@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { selectTotalPrice } from "../../../../Redux/Selectors/cartSelectors";
 
 const TotalDetails = () => {
-  const totalPrice = useSelector(selectTotalPrice);
+  const totalPrice = useSelector(selectTotalPrice) / 100;
   const [discount, setDiscount] = useState<number>(0);
 
   const handleDiscount = (e: React.ChangeEvent<HTMLInputElement>) => {

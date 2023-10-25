@@ -33,7 +33,7 @@ const Navbar = () => {
         {!isAuthenticated ? (
           <Link to="/login">{constants.login.login}</Link>
         ) : (
-          <Link to="/profile">{user?.username}</Link>
+          <h3 className={styles.username}>{user?.username}</h3>
         )}
         {isAuthenticated && (
           <button onClick={handleLogout}>{constants.logout.logout}</button>

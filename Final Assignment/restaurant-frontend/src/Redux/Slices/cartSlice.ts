@@ -1,6 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { cartType } from "../Types/cartType";
 import { item } from "../../Views/RestaurantPage/Types/item";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const initialState: cartType = {
   cartItems: [],
@@ -22,6 +24,10 @@ const cartSlice = createSlice({
           { ...action.payload, counter: 1 } as never,
         ];
         state.isEmpty = false;
+      } else {
+        toast.info("Item already added", {
+          autoClose: 2000,
+        });
       }
     },
     removeFromCart: (state, action) => {

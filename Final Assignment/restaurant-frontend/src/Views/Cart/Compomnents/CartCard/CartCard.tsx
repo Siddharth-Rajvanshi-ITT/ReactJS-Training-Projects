@@ -32,7 +32,11 @@ const CartCard = (props: cartItem) => {
           src={`https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/${props.cartItem.imageId}`}
           alt=""
         />
-        <p>{props.cartItem.name}</p>
+        <div className={styles.descriptionBox}>
+          <p className={styles.name}>{props.cartItem.name}</p>
+          <p className={styles.description}>{props.cartItem.category}</p>
+          <p className={styles.description}>{props.cartItem.isBestseller}</p>
+        </div>
       </td>
       <td className={styles.counterContainer}>
         <span onClick={handleMinus} className={styles.counterBtn}>
@@ -45,7 +49,7 @@ const CartCard = (props: cartItem) => {
       </td>
       <td className={styles.priceContainer}>
         {constants.restaurantDetails.currency}{" "}
-        {props.cartItem.price * props.cartItem.counter}
+        {(props.cartItem.price / 100) * props.cartItem.counter}
       </td>
       <td className={styles.actionBtnContainer}>
         <button onClick={handleRemoveItem} className={styles.actionBtn}>

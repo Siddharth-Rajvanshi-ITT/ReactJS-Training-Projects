@@ -39,7 +39,7 @@ const RestaurantCard: React.FC<restaurant> = (props: restaurant) => {
       : +props.restaurantData.data.avgRating > 3.9
       ? "good"
       : "";
-  const handleNavigate = () => {};
+
   return (
     <>
       <div
@@ -47,7 +47,6 @@ const RestaurantCard: React.FC<restaurant> = (props: restaurant) => {
         style={{
           backgroundImage: `url(https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/${props.restaurantData.data.cloudinaryImageId})`,
         }}
-        onClick={handleNavigate}
       >
         <div className={styles.detailsContainer}>
           {props.restaurantData.data.new && (

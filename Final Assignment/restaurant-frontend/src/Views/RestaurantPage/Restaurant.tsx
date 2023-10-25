@@ -16,6 +16,7 @@ import { actions } from "../../Redux/Slices/favoriteSlice";
 import { selectFavorite } from "../../Redux/Selectors/favSelector";
 import constants from "../../Utilities/Constansts/lableConstancts.json";
 import RestaurantSkeleton from "./Components/Skeleton/Index";
+import { ToastContainer } from "react-toastify";
 
 type resData = {
   MenuItems: MenuItems[];
@@ -49,7 +50,6 @@ const Restaurant = () => {
     });
 
     setIsFav(checkFav);
-    console.log(favRestaurants);
   }, [favRestaurants, restaurantData?.restaurant]);
 
   const handleChange = (filteredData: MenuItems[]) => {
@@ -102,7 +102,6 @@ const Restaurant = () => {
                         ? constants.restaurantDetails.removeFavorite
                         : constants.restaurantDetails.addToFavorite}
                     </button>
-                    {/* <button onClick={handleShowFav}>Add to Cart</button> */}
                   </div>
 
                   <div className={styles.shareSection}>
@@ -136,6 +135,7 @@ const Restaurant = () => {
               </div>
             </div>
           }
+          <ToastContainer />
         </div>
       ) : (
         <RestaurantSkeleton />

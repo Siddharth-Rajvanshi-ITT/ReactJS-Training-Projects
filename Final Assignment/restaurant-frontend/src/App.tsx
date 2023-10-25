@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actions } from "./Redux/Slices/authSlice";
 import { selectAuth } from "./Redux/Selectors/authSelector";
 import Checkout from "./Views/Checkout/Checkout";
+import AboutUs from "./Views/AboutUs/AboutUs";
 
 type user = {
   username: string;
@@ -30,8 +31,6 @@ function App() {
         return item.username === localStorage.getItem("username");
       });
 
-      console.log(isUser);
-
       isUser[0] && dispatch(actions.login(isUser[0]));
     };
 
@@ -44,6 +43,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<AboutUs />} />
         <Route path="/restaurant/:id" element={<Restaurant />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />

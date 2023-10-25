@@ -1,0 +1,10 @@
+.card {
+  box-shadow: 0 0 0.4rem gray;
+  border-radius: 0.3rem;
+  padding: 1rem;
+}
+
+.designation {
+  color: gray;
+  font-weight: 500;
+}

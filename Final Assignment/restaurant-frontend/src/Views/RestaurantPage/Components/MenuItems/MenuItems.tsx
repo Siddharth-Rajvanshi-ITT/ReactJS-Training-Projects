@@ -93,7 +93,8 @@ const MenuItem = (props: item) => {
           {props.menuItem.card.info.description}
         </p>
         <h3 className={styles.price}>
-          {constants.restaurantDetails.price} {props.menuItem.card.info.price}{" "}
+          {constants.restaurantDetails.price}{" "}
+          {props.menuItem.card.info.price / 100}{" "}
           {constants.restaurantDetails.currency}
         </h3>
         <button className={styles.addToCart} onClick={handleAddToCart}>
