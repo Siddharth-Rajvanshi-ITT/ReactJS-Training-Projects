@@ -30,7 +30,7 @@ type restaurant = {
   };
 };
 
-const RestaurantCard = (props: restaurant) => {
+const RestaurantCard: React.FC<restaurant> = (props: restaurant) => {
   const rating =
     +props.restaurantData.data.avgRating < 2
       ? "bad"

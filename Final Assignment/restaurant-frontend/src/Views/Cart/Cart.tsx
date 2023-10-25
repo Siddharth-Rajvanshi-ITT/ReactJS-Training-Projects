@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCart } from "../../Redux/Selectors/cartSelectors";
 import { actions } from "../../Redux/Slices/cartSlice";
@@ -11,8 +11,13 @@ import Skeleton from "./Compomnents/Skeleton/Skeleton";
 
 const Cart = () => {
   const cart = useSelector(selectCart);
+  const [showSkeleton, setShowSkeleton] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  setTimeout(() => {
+    setShowSkeleton(false);
+  }, 200);
 
   const hanldeEmptyCart = () => {
     dispatch(actions.emptyCart());
@@ -20,7 +25,7 @@ const Cart = () => {
 
   return (
     <>
-      {false ? (
+      {!showSkeleton ? (
         <div className={styles.container}>
           <div className={styles.cartContainer}>
             <table>
