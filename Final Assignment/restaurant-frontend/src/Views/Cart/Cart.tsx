@@ -57,8 +57,9 @@ const Cart = () => {
                   <th>{constants.cart.remove}</th>
                 </tr>
               </thead>
-              <hr />
+
               <tbody className={styles.tableContainer}>
+                <tr className={styles.head}></tr>
                 {cart.cartItems.map((item) => (
                   <CartCard key={item.id} cartItem={item} />
                 ))}

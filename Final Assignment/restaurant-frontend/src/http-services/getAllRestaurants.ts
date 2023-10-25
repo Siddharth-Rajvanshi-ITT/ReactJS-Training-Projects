@@ -4,7 +4,6 @@ const API_URL: string = "http://localhost:3001/api/restaurents";
 
 export const fetchRestaurants = async () => {
   try {
-    console.log(API_URL);
     const response = await axios.get(API_URL);
     if (response.status !== 200) {
       throw new Error("Network response was not ok");
